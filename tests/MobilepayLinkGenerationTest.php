@@ -1,7 +1,6 @@
 <?php
 
-namespace MobilepayQRGenerator;
-include "../src/MobilepayQRGenerator.php";
+namespace FjolleJagt\kbhffQRCode;
 
 use PHPUnit\Framework\TestCase;
 

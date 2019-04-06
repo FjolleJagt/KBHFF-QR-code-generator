@@ -1,9 +1,8 @@
 <?php
-namespace MobilepayQRGenerator;
+namespace FjolleJagt\kbhffQRCode;
 
 use InvalidArgumentException;
-
-include "../lib/phpqrcode/qrlib.php";
+use Endroid\QrCode\QrCode;
 
 class QRCodeGenerator {
     public static $urlBase = "https://www.mobilepay.dk/erhverv/betalingslink/betalingslink-svar?";
@@ -16,7 +15,9 @@ class QRCodeGenerator {
     );
 
     /**
-     * Generates a Mobilepay QR code, saving it to file.
+     * Generates a Mobilepay QR code, saving it to a file in the ./img/ directory.
+     *
+     * ./img/ is assumed to exist and be writable.
      *
      * The below interface is just an example of what I would expect to implement; we would change the way the comment
      * field is generated based on our requirements.
@@ -27,7 +28,7 @@ class QRCodeGenerator {
      * @param float|int|string $amount Amount to charge
      * @param string $afdeling The afdeling to which the member belongs
      * @param string $transactionId Unique identifier for this transation
-     * @return string Filename of the generated QR code
+     * @return string Filename of the generated QR code, relative to current directory.
      */
     public static function generate($amount, $afdeling, $transactionId){
         $identifier = "" . $transactionId . "." . $afdeling;
@@ -39,7 +40,9 @@ class QRCodeGenerator {
 
         $mobilepayURL = self::getMobilepayLink($phonenumber, $amount, $identifier);
 
-        \QRcode::png($mobilepayURL, $filename, 'L', 4 , 2);
+        $qrCode = new QrCode($mobilepayURL);
+        $qrCode->setSize(300);
+        $qrCode->writeFile($filename);
 
         return $filename;
     }

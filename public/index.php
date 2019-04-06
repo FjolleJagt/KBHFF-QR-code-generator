@@ -14,11 +14,10 @@
 <pre><code>
     <?php
     echo htmlspecialchars("<?php
-    include(\"../src/MobilepayQRGenerator.php\");
+    include(\"../src/QRCodeGenerator.php\");
     use \MobilepayQRGenerator\QRCodeGenerator;
 
-    \$filename = QRCodeGenerator::generate(30.50, \"Østerbro\", 3142);
-    ?>
+    \$filename = QRCodeGenerator::generate(30.50, \"Østerbro\", \"3142\");
 
     <img src=\"<?php echo \$filename; ?>\" alt=\"QR code\"/>");
     ?>
@@ -27,10 +26,10 @@
 <h1>The result</h1>
 
 <?php
-include("../src/MobilepayQRGenerator.php");
-use \MobilepayQRGenerator\QRCodeGenerator;
+require_once __DIR__ . "/../vendor/autoload.php";
+use \FjolleJagt\kbhffQRCode\QRCodeGenerator;
 
-$filename = QRCodeGenerator::generate(30.50, "Østerbro", 3142);
+$filename = QRCodeGenerator::generate(30.50, "Østerbro", "3142");
 ?>
 
 <img src="<?php echo $filename; ?>" alt="QR code"/>
