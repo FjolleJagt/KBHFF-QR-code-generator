@@ -1,12 +1,12 @@
-#MobilepayQRGenerator
+# MobilepayQRGenerator
 
 This code generates Mobilepay QR codes for KBHFF using the `endroid/qr-code` library.
 
-##Dependencies
+## Dependencies
 
 Dependencies are handled by `composer`; run `composer install` to install them. 
 
-##Usage
+## Usage
 
 Example code is as follows:
 
