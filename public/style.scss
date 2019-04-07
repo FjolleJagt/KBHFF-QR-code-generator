@@ -1,0 +1,67 @@
+/* solarized colours due to http://ethanschoonover.com/solarized */
+$base-fg: rgba(0, 0, 0, 0.8);
+$base-bg: rgb(247, 247, 247);
+$light-grey: #586e75;
+$blue: #268bd2;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $base-bg;
+  color: $base-fg;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  text-indent: 1em;
+}
+
+a:link {
+  color: $blue;
+}
+
+a:visited {
+  color: $light-grey;
+}
+
+#page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.narrow-column {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+#contact-table td {
+  padding: 0 10px;
+}
+
+#footer {
+  text-align: right;
+  color: $light-grey;
+  font-style: italic;
+}
+
+.centre {
+  margin: 0 auto;
+  display: block;
+}
+
+.frame {
+  border: 1px solid;
+}

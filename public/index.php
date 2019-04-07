@@ -5,34 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>QR Code Code Showcase</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<h1>The code</h1>
-
-<pre><code>
+<div id="page">
+    <div id="content" class="narrow-column">
+        <h1>KBHFF QR Code Code Showcase</h1>
+        <h2>The code</h2>
+<pre class="prettyprint">
     <?php
     echo htmlspecialchars("<?php
-    include(\"../src/QRCodeGenerator.php\");
-    use \MobilepayQRGenerator\QRCodeGenerator;
-
-    \$filename = QRCodeGenerator::generate(30.50, \"Østerbro\", \"3142\");
-
-    <img src=\"<?php echo \$filename; ?>\" alt=\"QR code\"/>");
+      include(\"../src/QRCodeGenerator.php\");
+      use \MobilepayQRGenerator\QRCodeGenerator;
+      //Ask for 30,50kr to the Østerbro account with transaction id 3142
+      \$filename = QRCodeGenerator::generate(30.50, \"Østerbro\", \"3142\");
     ?>
-</code></pre>
 
-<h1>The result</h1>
+    <img src=\"<?php echo \$filename; ?>\" alt=\"QR code\" class=\"centre\"/>");
+    ?>
+</pre>
 
-<?php
-require_once __DIR__ . "/../vendor/autoload.php";
-use \FjolleJagt\kbhffQRCode\QRCodeGenerator;
+        <h2>The result</h2>
 
-$filename = QRCodeGenerator::generate(30.50, "Østerbro", "3142");
-?>
+        <?php
+        require_once __DIR__ . "/../vendor/autoload.php";
+        use \FjolleJagt\kbhffQRCode\QRCodeGenerator;
 
-<img src="<?php echo $filename; ?>" alt="QR code"/>
+        $filename = QRCodeGenerator::generate(30.50, "Østerbro", "3142");
+        ?>
 
+        <img src="<?php echo $filename; ?>" alt="QR code" class="centre frame"/>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=php"></script>
 </body>
 </html>
