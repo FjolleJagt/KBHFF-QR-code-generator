@@ -4,7 +4,7 @@ This code generates Mobilepay QR codes for KBHFF using the `endroid/qr-code` lib
 
 ## Dependencies
 
-Dependencies are handled by `composer`; run `composer install` to install them. 
+Dependencies are handled by `composer`; run `composer install --no-dev` to install them. 
 
 ## Usage
 
@@ -21,4 +21,4 @@ $filename = QRCodeGenerator::generate(30.50, "Østerbro", "3142");
 <img src="<?php echo $filename; ?>" alt="QR code"/>
 ```
 
-You can run the tests by running the command `./vendor/bin/phpunit`.
+You can run the tests by running the command `./vendor/bin/phpunit`. (This requires installing the dev dependencies with `composer install --dev`.)
