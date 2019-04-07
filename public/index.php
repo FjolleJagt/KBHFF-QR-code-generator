@@ -15,17 +15,20 @@
         <h1>KBHFF QR Code Code Showcase</h1>
         <h2>The code</h2>
 <pre class="prettyprint">
-    <?php
-    echo htmlspecialchars("<?php
-      include(\"../src/QRCodeGenerator.php\");
-      use \MobilepayQRGenerator\QRCodeGenerator;
-      //Ask for 30,50kr to the Østerbro account with transaction id 3142
-      \$filename = QRCodeGenerator::generate(30.50, \"Østerbro\", \"3142\");
-    ?>
+<?php
+echo htmlspecialchars("<?php
+ //enable composer's auto-loading of PHP classes:
+ require_once __DIR__ . \"/../vendor/autoload.php\"; 
+ use \FjolleJagt\kbhffQRCode\QRCodeGenerator;
+ //Ask for 30,50kr to the Østerbro account with transaction id 3142
+ \$filename = QRCodeGenerator::generate(30.50, \"Østerbro\", \"3142\");
+?>
 
-    <img src=\"<?php echo \$filename; ?>\" alt=\"QR code\" class=\"centre\"/>");
-    ?>
+<img src=\"<?php echo \$filename; ?>\" alt=\"QR code\" class=\"centre\"/>");
+?>
 </pre>
+
+<p>You can find the <a href="https://github.com/FjolleJagt/KBHFF-QR-code-generator">code base</a> on GitHub.</p>
 
         <h2>The result</h2>
 

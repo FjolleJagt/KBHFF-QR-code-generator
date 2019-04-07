@@ -41,7 +41,7 @@ class QRCodeGenerator {
         $mobilepayURL = self::getMobilepayLink($phonenumber, $amount, $identifier);
 
         $qrCode = new QrCode($mobilepayURL);
-        $qrCode->setSize(230);
+        $qrCode->setSize(200);
         $qrCode->writeFile($filename);
 
         return $filename;
