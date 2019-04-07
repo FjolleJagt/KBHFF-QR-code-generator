@@ -11,8 +11,6 @@
   ],
   "require": {
     "php": ">=5.0.0",
-    "ext-gd": "*",
-	"ext-iconv": "*",
     "endroid/qr-code": "^3.0@dev"
   },
   "require-dev": {
